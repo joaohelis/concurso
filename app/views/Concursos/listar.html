@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+
+<h1>Listagem de Concrusos</h1>
+
+<ul>
+#{list items:concursos, as: 'concurso'}
+<li><a href="@{Concursos.detalhes(concurso.id)}">${concurso.titulo}</a>
+#{if concurso.verificarInscricaoUsuario(usuarioLogado)} 
+| INSCRITO
+#{/if}
+</li>
+#{/list}
+#{else}
+<li>Nenhum concurso cadastrado!</li>
+#{/else}
+</ul>

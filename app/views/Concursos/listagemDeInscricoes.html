@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+
+<h1>Listagem de Concursos Inscritos</h1>
+
+<ul>
+#{list items:inscricoes, as: 'inscricao'}
+<li>${inscricao.dataInscricao.format("dd/MM/yyyy hh:mm")} | ${inscricao.concurso.titulo} | ${inscricao.cargo.descricao} </li>
+#{/list}
+#{else}
+<li>Nenhuma inscricao realizada!</li>
+#{/else}
+</ul>

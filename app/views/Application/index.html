@@ -1,0 +1,11 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Bem vindo ao sistema de concursos</h1>
+
+<ul>
+	<li><a href="@{Participantes.form}">Cadastrar participante</a></li>
+	<li><a href="@{Participantes.listar}">Listar participantes</a></li>
+	<li><a href="@{Concursos.listarConcursos}">Listar concursos</a></li>
+	<li><a href="@{Concursos.listarInscricoesDoUsuarioLogado}">Listar inscrições em concursos</a></li>
+</ul>

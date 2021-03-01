@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+
+<h1>Listagem de Participantes</h1>
+
+<ul>
+#{list items:participantes, as: 'participante'}
+<li>${participante.nome} |
+#{if usuarioLogado.id == participante.id }
+<a href="@{Participantes.remover(participante.id)}">Remover</a>
+#{/if}
+
+</li>
+#{/list}
+#{else}
+<li>Nenhum participante cadastrado!</li>
+#{/else}
+</ul>
+
+<a href="@{Participantes.form}">Cadastrar novo Participante</a>

@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Formulário de Cadastro de Participante</h1>
+
+#{ifErrors} 
+<p>Foram encontrados erros no preenchimento dos dados!</p> 
+#{/ifErrors}
+
+<form action="@{Participantes.salvar}" method="post">
+	
+	<input type="hidden" value="${part?.id}">
+
+	Nome: <input type="text" name="part.nome" value="${flash['part.nome'] != null ? flash['part.nome'] : part?.nome}">
+	#{ifError 'part.nome'} #{error 'part.nome' /} #{/ifError}<br>
+	
+	E-mail: <input type="text" name="part.email" value="${flash['part.email'] != null ? flash['part.email'] : part?.email}">
+	#{ifError 'part.email'} #{error 'part.email' /} #{/ifError}<br>
+	
+	Senha: <input type="password" name="part.senha" value="${part?.senha}">
+	#{ifError 'part.senha'} #{error 'part.senha' /} #{/ifError}<br>
+	
+	Nota: <input type="text" name="part.nota" value="${flash['part.nota'] != null ? flash['part.nota'] : part?.nota}">
+	#{ifError 'part.nota'} #{error 'part.nota' /} #{/ifError}<br>
+	<input type="submit" value="Enviar">
+</form>

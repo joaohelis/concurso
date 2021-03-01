@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+
+<h1>Detalhes de Concurso</h1>
+
+<b>${concurso.titulo}</b>
+
+<br>
+<br>
+Cargos:
+<ul>
+#{list items:concurso.cargos, as: 'cargo'}
+<li>${cargo.descricao} | <a href="@{Concursos.realizarInscricao(cargo.id, concurso.id)}">Inscrever-se</a></li>
+#{/list}
+#{else}
+<li>Nenhum cargo cadastrado para o concurso!</li>
+#{/else}
+</ul>
+
+<a href="@{Concursos.listarConcursos}">Voltar para Listagem de Concurso</a>
